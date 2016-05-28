@@ -6,7 +6,7 @@ tags: [sample post]
 image:
   background: triangular.png
 ---
-
+我真的好开心
 Here be a sample post with a custom background image. To utilize this "feature" just add the following YAML to a post's front matter.
 
 {% highlight yaml %}
