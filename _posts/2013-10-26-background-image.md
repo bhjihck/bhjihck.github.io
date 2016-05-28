@@ -13,9 +13,7 @@ import
 
 
 
-
-
-
+ok
 {% highlight yaml %}
 image:
   background: filename.png
