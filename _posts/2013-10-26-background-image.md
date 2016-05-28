@@ -8,7 +8,7 @@ image:
 ---
 
 good Here be a sample post with a custom background image. To utilize this "feature" just add the following YAML to a post's front matter.
-
+import
 {% highlight yaml %}
 image:
   background: filename.png
