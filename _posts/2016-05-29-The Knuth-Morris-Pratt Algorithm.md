@@ -4,7 +4,7 @@ title: The Knuth-Morris-Pratt Algorithm KMP模式匹配算法
 description: "KMP模式匹配算法"
 tags: [KMP]
 image:
-  feature: 25.jpg
+  feature: abstract-1.jpg
 ---
 # The Knuth-Morris-Pratt Algorithm
 使用的数据结构：
