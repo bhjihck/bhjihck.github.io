@@ -68,9 +68,10 @@ sequenstring connect(sequenstring s1, sequenstring s2)
 	return s1;
 }
 {% endhighlight %}
-//将s2连在s1后面
-## 基于该类的两种模式匹配的方案
-### 方案一(朴素匹配):
+以上是将s2连在s1后面
+
+基于该类的两种模式匹配的方案：
+方案一(朴素匹配):
 - 传入两个顺序串对象mom和son到patternMatching中
 - 对母串的匹配开始节点号进行标记momCount
 - 在while循环中利用matching子函数判断从momCount点开始母串能否成功与子串匹配
@@ -108,7 +109,7 @@ bool pattern_matching(sequenstring mom, sequenstring son)
 	return false;
 }//模式匹配
 {% endhighlight %}
-使用举例
+使用举例：
 {% highlight c++ %}
 sequenstring m,s;
 m.create();
