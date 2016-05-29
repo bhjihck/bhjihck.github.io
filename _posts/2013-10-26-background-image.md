@@ -9,12 +9,11 @@ image:
 
 Here be a sample post with a custom background image. To utilize this "feature" just add the following YAML to a post's front matter.
 
-[TOC]
-#Binary Tree
+### Binary Tree
 
-##首先我们所使用的是一个基于链表的二叉树
-```
-typedef struct node
+#### 首先我们所使用的是一个基于链表的二叉树
+{% highlight css %}
+#typedef struct node
 {
 	char data;
 	struct node*lchild, *rchild;
@@ -30,7 +29,7 @@ public:
 	void show();
 };
 //处理二叉树的问题,需要借助队列
-```
+{% endhighlight %}
 ##这是二叉树的创建函数
 ```
 void bitree::create()
