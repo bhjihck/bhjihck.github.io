@@ -4,12 +4,11 @@ title: Post with a Background Image
 description: "Sample post with a background image CSS override."
 tags: [sample post]
 image:
-  background: triangular.png
+   feature: abstract-10.jpg
+  #background: triangular.png
 ---
 
-Here be a sample post with a custom background image. To utilize this "feature" just add the following YAML to a post's front matter.
-
-### Binary Tree
+# Binary Tree
 
 ## 首先我们所使用的是一个基于链表的二叉树
 {% highlight c++ %}
@@ -28,11 +27,12 @@ public:
 	void create();
 	void show();
 };
-//处理二叉树的问题,需要借助队列
 {% endhighlight %}
-##这是二叉树的创建函数
-```
-void bitree::create()
+处理二叉树的问题,需要借助队列
+
+## 这是二叉树的创建函数
+{% highlight c++ %}
+#void bitree::create()
 {
 	char tempChar;
 	bitreeNodeCreate *nodeLine[MAXSIZETREE];//作为节点储存与处理的队列
@@ -78,16 +78,18 @@ void bitree::create()
 			}
 		}
 	}
-}//创建二叉树
-```
-###使用举例
-```
-bitree t;
+}
+{% endhighlight %}
+创建二叉树
+
+## 使用举例
+{% highlight c++ %}
+#bitree t;
 t.create();
-```
-##这是一个广度优先的遍历函数,同时也将二叉树的节点输出到屏幕上
-```
-void bitree::show()
+{% endhighlight %}
+## 这是一个广度优先的遍历函数,同时也将二叉树的节点输出到屏幕上
+{% highlight c++ %}
+#void bitree::show()
 {
 	bitreeNodeCreate *nodeLine[MAXSIZETREE];
 	memset(nodeLine, 0, sizeof(nodeLine));
@@ -134,15 +136,16 @@ void bitree::show()
 		parent++;
 	}
 }
-```
-###使用举例
-```
-bitree t;
+{% endhighlight %}
+
+## 使用举例
+{% highlight css %}
+#bitree t;
 t.create();
 t.show();
-```
+{% endhighlight %}
 
-
+Here be a sample post with a custom background image. To utilize this "feature" just add the following YAML to a post's front matter.
 {% highlight yaml %}
 image:
   background: filename.png
