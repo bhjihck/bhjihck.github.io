@@ -7,7 +7,7 @@ image:
    feature: abstract-10.jpg
 ---
 
-&nbsp &nbsp首先我们所使用的是一个基于链表的二叉树,处理二叉树的问题,需要借助队列
+     首先我们所使用的是一个基于链表的二叉树,处理二叉树的问题,需要借助队列
 {% highlight c++ %}
 typedef struct node
 {
