@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Binary Tree 初始函数
-description: "Sample post with a background image CSS override."
+description: "二叉树的库函数"
 tags: [Binary Tree]
 image:
    feature: abstract-10.jpg
 ---
 
-首先我们所使用的是一个基于链表的二叉树,处理二叉树的问题,需要借助队列
 {% highlight c++ %}
 typedef struct node
 {
@@ -25,8 +24,8 @@ public:
 	void show();
 };
 {% endhighlight %}
-
-这是二叉树的创建函数,创建二叉树
+以上便是我们所使用的是一个基于链表的二叉树,处理二叉树的问题,需要借助队列
+下面的是二叉树的创建函数,创建二叉树
 {% highlight c++ %}
 void bitree::create()
 {
