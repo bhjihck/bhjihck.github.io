@@ -2,7 +2,7 @@
 layout: post
 title: Binary Tree 初始函数
 description: "Sample post with a background image CSS override."
-tags: [sample post]
+tags: [Binary Tree]
 image:
    feature: abstract-10.jpg
 ---
