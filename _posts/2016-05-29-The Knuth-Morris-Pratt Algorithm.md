@@ -1,0 +1,271 @@
+---
+layout: post
+title: The Knuth-Morris-Pratt Algorithm KMP模式匹配算法
+description: "KMP模式匹配算法"
+tags: [KMP]
+image:
+  feature: 25.jpg
+---
+# The Knuth-Morris-Pratt Algorithm
+使用的数据结构：
+首先我们会使用一个顺序串的类
+{% highlight c++ %}
+#define MAXSIZE_STRING 20
+class sequenstring
+{
+public:
+	char data[MAXSIZE_STRING];
+	int len=0;
+	int next[MAXSIZE_STRING];
+	//代表该字符串现在有几个元素
+	sequenstring()
+	{
+		len = 0;
+		memset(next, 0, MAXSIZE_STRING*sizeof(int));
+		//C++下对数组的批量赋值
+	};
+	~sequenstring(){};
+	void create();
+	void show();
+};
+{% endhighlight %}
+这个类中包含的基本函数：
+{% highlight c++ %}
+void sequenstring::show()
+{
+	int count = 0;
+	for (; count < len; count++)
+	{
+		cout << data[count] << " ";
+	}
+	cout << endl;
+	count = 0;
+	for (; count < len; count++)
+	{
+		cout << next[count] << " ";
+	}
+	cout << endl;
+}
+
+void sequenstring::create()
+//为什么不能用string?
+{
+	char temp_char;
+	cout << "请输入您所要创建的字符串 以#结束" << endl;
+	while ((cin >> temp_char) && (temp_char != '#'))
+	{
+		data[len] = temp_char;
+		len++;
+	}
+}
+
+sequenstring connect(sequenstring s1, sequenstring s2)
+{
+	int count=0;
+	while (count!=s2.len)
+	{
+		s1.data[s1.len] = s2.data[count];	
+		s1.len++;
+		count++;
+	}
+	return s1;
+}//将s2连在s1后面
+{% endhighlight %}
+##基于该类的两种模式匹配的方案
+###方案一(朴素匹配):
+- 传入两个顺序串对象mom和son到patternMatching中
+- 对母串的匹配开始节点号进行标记momCount
+- 在while循环中利用matching子函数判断从momCount点开始母串能否成功与子串匹配
+- 根据返回的matching布尔值来决定对momCount进行递增还是返回true
+- matching函数里则是从momCount点的母串字符开始,利用while循环依次匹配,如果匹配失败,则立刻终止,否则一直匹配直到成功.
+
+{% highlight c++ %}
+bool matching(int mom_count, sequenstring mom, sequenstring son)
+{
+	int count_plus=0;
+	while (count_plus < son.len)
+	{
+		if (mom.data[mom_count + count_plus] == son.data[count_plus])
+		{
+			count_plus++;
+		}
+		else return false;
+	}
+	return true;
+	
+}//模式匹配pattern_matching的子函数
+
+
+bool pattern_matching(sequenstring mom, sequenstring son)
+{
+	int mom_count = 0;
+	int son_count = 0;
+	while (mom_count <= (mom.len - son.len))
+	{
+		if (matching(mom_count,mom,son))
+		{
+			return true;
+		}
+		else mom_count++;
+	}
+	return false;
+}//模式匹配
+{% endhighlight %}
+使用举例
+{% highlight c++ %}
+sequenstring m,s;
+m.create();
+s.create();
+if(pattern_matching(m,s))
+{
+	cout<<"SUCCESS";
+}
+else
+{
+	cout<<"FALSE";
+}
+{% endhighlight %}
+###方案二:KMP算法 (因为是初始版本 所以写得很繁琐)
+{% highlight c++ %}
+bool line_checkequal_kmp(sequenstring &son, int &add,int &count)
+{
+	int count_small = 0;
+	for (; count_small <= add - 1; count_small++)
+	{
+		if (son.data[count_small] == son.data[count + count_small - add])
+		{
+
+		}
+		else
+		{
+			return false;
+		}
+	}
+	return true;
+}
+int checkequal_kmp(sequenstring &son,int &count)
+{
+	int add = 1;
+	int same_length = 0;
+	for (; add <= (count+1)/2; add++)//c里面的小数化整数是直接去尾法
+	{
+		if (line_checkequal_kmp(son,add,count))
+		{
+			same_length = add;
+		}
+	}
+	return same_length;
+}
+void kmp_next(sequenstring &son)
+{
+	int count = 0;
+	for (; count < son.len; count++)
+	{
+		if (count==0/*是第一个字符*/)
+		{
+			son.next[count] = -1;
+		}
+		else
+		{
+			if (son.data[count]==son.data[0]/*是否与首字符相同*/)
+			{
+				if (checkequal_kmp(son, count)/*前面n个字符与开头n个字符都不等*/)
+				{
+					son.next[count] = -1;
+				}
+				else
+				{
+					if (son.data[checkequal_kmp(son, count)] == son.data[count]/*是等于该字符*/)
+					{
+						son.next[count] = -1;
+					}
+					else
+					{
+						son.next[count] = 0;
+					}
+				}
+			}
+			else
+			{
+				if (!checkequal_kmp(son, count)/*前面n个字符与开头n个字符都不等*/)
+				{
+					son.next[count] = 0;
+				}
+				else
+				{
+					if (son.data[checkequal_kmp(son, count)] == son.data[count]/*是等于该字符*/)
+					{
+						son.next[count] = 0;
+					}
+					else
+					{
+						son.next[count] = checkequal_kmp(son,count);
+					}
+				}
+			}
+
+		}
+	}
+	
+}
+
+bool check_kmp(sequenstring mom,sequenstring son,int &mom_number, int &son_number)
+{
+	for (; son_number < son.len;son_number++)
+	{
+		if (mom.data[mom_number] == son.data[son_number])
+		{
+			mom_number++;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+bool kmp(sequenstring mom, sequenstring son,int mom_number,int son_number)
+{
+	while (son.len-son_number<=mom.len-mom_number)
+	{
+		if (check_kmp(mom,son,mom_number,son_number))
+			{
+				return true;
+			}
+			else
+			{
+				//匹配失败,返回失败的m节点和n节点
+				if (son.next[son_number] == -1)
+				{
+					mom_number++;
+					son_number = 0;
+				}
+				else
+				{
+					son_number = son.next[son_number];
+				}
+				//根据n节点的next值确定下一次匹配的m'节点和n'节点
+				//匹配m'节点和n'节点
+				kmp(mom, son, mom_number, son_number);
+			}
+	}
+	return false;
+}
+#endif
+{% endhighlight %}
+使用举例：
+{% highlight c++ %}
+sequenstring m,s;
+m.create();
+s.create();
+if(kmp(m,s,0,0))
+{
+	cout<<"SUCCESS";
+}
+else
+{
+	cout<<"FALSE";
+}
+//必须要用两个0作为母子串的起始计数点(m.data[0],s.data[0])
+{% endhighlight %}
