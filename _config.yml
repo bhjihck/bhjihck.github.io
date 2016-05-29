@@ -9,14 +9,14 @@ url:
 
 # Owner/author information
 owner:
-  name:           Your Name
+  name:           Craz Fox
   avatar:         avatar.jpg
-  bio:            "欢迎大家来到我的技术博客╰(￣▽￣)╮"
+  bio:            "Welcome to my TechBlog"
   email:          470646613@qq.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
   facebook:       
-  github:         
+  github:         https://github.com/bhjihck
   stackexchange:  
   linkedin:       
   instagram:      
