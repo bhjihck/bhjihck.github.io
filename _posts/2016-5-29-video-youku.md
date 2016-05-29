@@ -3,7 +3,8 @@ layout: post
 title: "A Post with a Video"
 description: "Custom written post descriptions are the way to go... if you're not lazy."
 tags: [sample post, video]
-background:abstract-3.jpg
+image:
+		background:abstract-3.jpg
 ---
 
 <iframe width="620" height="498" src="//player.youku.com/embed/XMTU4NDIxNDk5Mg==" allowfullscreen frameborder="0" ></iframe>
