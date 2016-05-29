@@ -4,7 +4,7 @@ title: Binary Tree 初始函数
 description: "二叉树的库函数"
 tags: [Binary Tree]
 image:
-  background: abstract-12.jpg
+  feature: J15.jpg
 ---
 {% highlight c++ %}
 typedef struct node
