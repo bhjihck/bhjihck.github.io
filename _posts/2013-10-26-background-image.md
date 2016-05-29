@@ -11,8 +11,8 @@ Here be a sample post with a custom background image. To utilize this "feature" 
 
 ### Binary Tree
 
-#### 首先我们所使用的是一个基于链表的二叉树
-{% highlight css %}
+## 首先我们所使用的是一个基于链表的二叉树
+{% highlight c++ %}
 #typedef struct node
 {
 	char data;
