@@ -12,7 +12,6 @@ image:
 ## 首先我们所使用的是一个基于链表的二叉树
 处理二叉树的问题,需要借助队列
 {% highlight c++ %}
-#
 typedef struct node
 {
 	char data;
@@ -33,7 +32,7 @@ public:
 ## 这是二叉树的创建函数
 创建二叉树
 {% highlight c++ %}
-#void bitree::create()
+void bitree::create()
 {
 	char tempChar;
 	bitreeNodeCreate *nodeLine[MAXSIZETREE];//作为节点储存与处理的队列
@@ -84,12 +83,12 @@ public:
 
 ## 使用举例
 {% highlight c++ %}
-#bitree t;
+bitree t;
 t.create();
 {% endhighlight %}
 ## 这是一个广度优先的遍历函数,同时也将二叉树的节点输出到屏幕上
 {% highlight c++ %}
-#void bitree::show()
+void bitree::show()
 {
 	bitreeNodeCreate *nodeLine[MAXSIZETREE];
 	memset(nodeLine, 0, sizeof(nodeLine));
@@ -140,7 +139,7 @@ t.create();
 
 ## 使用举例
 {% highlight css %}
-#bitree t;
+bitree t;
 t.create();
 t.show();
 {% endhighlight %}
