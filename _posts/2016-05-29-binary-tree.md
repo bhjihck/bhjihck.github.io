@@ -4,7 +4,6 @@ title: Binary Tree 初始函数
 description: "二叉树的库函数"
 tags: [Binary Tree]
 ---
-
 {% highlight c++ %}
 typedef struct node
 {
@@ -13,7 +12,7 @@ typedef struct node
 }bitreeNodeCreate;
 
 class bitree
-{
+{ 
 public:
 	bitreeNodeCreate *root;
 	bitree(){ root = NULL; };
@@ -22,8 +21,7 @@ public:
 	void show();
 };
 {% endhighlight %}
-以上便是我们所使用的是一个基于链表的二叉树,处理二叉树的问题,需要借助队列
-下面的是二叉树的创建函数,创建二叉树
+以上便是我们所使用的是一个基于链表的二叉树的类的基本声明，并且处理二叉树的问题时需要借助队列，接下来则是二叉树的创建函数——
 {% highlight c++ %}
 void bitree::create()
 {
@@ -74,12 +72,12 @@ void bitree::create()
 }
 {% endhighlight %}
 
-使用举例
+二叉树创建函数使用举例：
 {% highlight c++ %}
 bitree t;
 t.create();
 {% endhighlight %}
-这是一个广度优先的遍历函数,同时也将二叉树的节点输出到屏幕上
+下面这是一个广度优先的遍历函数，同时也将二叉树的节点输出到屏幕上——
 {% highlight c++ %}
 void bitree::show()
 {
@@ -130,11 +128,9 @@ void bitree::show()
 }
 {% endhighlight %}
 
-使用举例
+遍历函数使用举例：
 {% highlight css %}
 bitree t;
 t.create();
 t.show();
 {% endhighlight %}
-
-<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://subtlepatterns.com" class="notice">Background images from <span property="dct:title">Subtle Patterns</span> (<a rel="cc:attributionURL" property="cc:attributionName" href="http://subtlepatterns.com">Subtle Patterns</a>) / <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></div>
