@@ -26,8 +26,7 @@ public:
 };
 {% endhighlight %}
 
-## 这是二叉树的创建函数
-创建二叉树
+这是二叉树的创建函数,创建二叉树
 {% highlight c++ %}
 void bitree::create()
 {
@@ -78,12 +77,12 @@ void bitree::create()
 }
 {% endhighlight %}
 
-## 使用举例
+使用举例
 {% highlight c++ %}
 bitree t;
 t.create();
 {% endhighlight %}
-## 这是一个广度优先的遍历函数,同时也将二叉树的节点输出到屏幕上
+这是一个广度优先的遍历函数,同时也将二叉树的节点输出到屏幕上
 {% highlight c++ %}
 void bitree::show()
 {
@@ -134,7 +133,7 @@ void bitree::show()
 }
 {% endhighlight %}
 
-## 使用举例
+使用举例
 {% highlight css %}
 bitree t;
 t.create();
