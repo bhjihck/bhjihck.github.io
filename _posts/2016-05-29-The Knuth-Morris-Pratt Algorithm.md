@@ -1,14 +1,13 @@
 ---
 layout: post
-title: The Knuth-Morris-Pratt Algorithm KMP模式匹配算法
+title: The Knuth-Morris-Pratt Algorithm 模式匹配算法
 description: "KMP模式匹配算法"
 tags: [KMP]
 image:
   feature: 25.jpg
 ---
 # The Knuth-Morris-Pratt Algorithm
-使用的数据结构：
-首先我们会使用一个顺序串的类
+使用的数据结构：首先我们会使用一个顺序串的类——
 {% highlight c++ %}
 #define MAXSIZE_STRING 20
 class sequenstring
@@ -68,7 +67,7 @@ sequenstring connect(sequenstring s1, sequenstring s2)
 	return s1;
 }
 {% endhighlight %}
-以上是将s2连在s1后面
+以上是将s2连在s1后面。
 
 基于该类的两种模式匹配的方案：
 
@@ -125,7 +124,7 @@ else
 	cout<<"FALSE";
 }
 {% endhighlight %}
-### 方案二:KMP算法 (因为是初始版本 所以写得很繁琐)
+方案二:KMP算法 (因为是初始版本 所以写得很繁琐)：
 {% highlight c++ %}
 bool line_checkequal_kmp(sequenstring &son, int &add,int &count)
 {
